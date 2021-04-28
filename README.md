@@ -1,16 +1,9 @@
 # travelr
-
 Track the countries you’ve visited
+A school project
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+| ![Screenshot 1](https://i.imgur.com/qvXdCVn.png) | ![Screenshot 2](https://i.imgur.com/8ziOmw3.png) |
+|:-------------------------:|:-------------------------:|
+| ![Screenshot 3](https://i.imgur.com/nNRjSbQ.png) | ![Screenshot 4](https://i.imgur.com/KgtGRiy.png) |
+| ![Screenshot 5](https://i.imgur.com/kOvDDAk.png) | ![Screenshot 6](https://i.imgur.com/sy9Utcb.png) |
