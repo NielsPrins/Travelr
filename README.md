@@ -1,6 +1,7 @@
 # travelr
 Track the countries you’ve visited
-A school project
+
+My first flutter app for a school project
 
 ## Screenshots
 | ![Screenshot 1](https://i.imgur.com/ZXN5Ovu.png) | ![Screenshot 2](https://i.imgur.com/h3CD9ei.png) |
