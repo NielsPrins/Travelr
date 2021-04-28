@@ -4,8 +4,6 @@ import 'package:travelr/screens/travelr_tabs/map.dart';
 import 'package:travelr/screens/travelr_tabs/profile.dart';
 
 class TravelrScreen extends StatefulWidget {
-  static const String id = 'chat_screen';
-
   @override
   _TravelrScreenState createState() => _TravelrScreenState();
 }
@@ -22,29 +20,30 @@ class _TravelrScreenState extends State<TravelrScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _widgets.elementAt(_selectedTabIndex),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.public),
-              label: 'Map',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.format_list_bulleted),
-              label: 'List',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
-              label: 'Profile',
-            )
-          ],
-          selectedItemColor: Colors.blue,
-          currentIndex: _selectedTabIndex,
-          onTap: (selectedTabIndex) => {
-            setState(() {
-              _selectedTabIndex = selectedTabIndex;
-            })
-          },
-        ));
+      body: _widgets.elementAt(_selectedTabIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.public),
+            label: 'Map',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.format_list_bulleted),
+            label: 'List',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: 'Profile',
+          )
+        ],
+        selectedItemColor: Colors.blue,
+        currentIndex: _selectedTabIndex,
+        onTap: (selectedTabIndex) => {
+          setState(() {
+            _selectedTabIndex = selectedTabIndex;
+          })
+        },
+      ),
+    );
   }
 }

@@ -12,7 +12,6 @@ Future<void> main() async {
     statusBarColor: Colors.transparent,
     systemNavigationBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
-    systemNavigationBarIconBrightness: Brightness.dark,
   ));
 
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +28,7 @@ class Travelr extends StatelessWidget {
         StreamProvider(create: (context) => context.read<AuthenticationService>().authStateChanges)
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: AuthenticationWrapper(),
       ),
     );

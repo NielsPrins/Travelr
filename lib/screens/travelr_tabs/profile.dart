@@ -56,74 +56,75 @@ class _TravelrProfileState extends State<TravelrProfile> {
             Expanded(
               child: Center(
                 child: StreamBuilder(
-                    stream: FirebaseFirestore.instance.collection('/users/' + firebaseUser.uid + '/countries').snapshots(),
-                    builder: (context, snapshot) {
-                      if (!snapshot.hasData) return Text('Loading...');
+                  stream: FirebaseFirestore.instance.collection('/users/' + firebaseUser.uid + '/countries').snapshots(),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) return Text('Loading...');
 
-                      List<Continent> continents = [
-                        Continent('North America'),
-                        Continent('South America'),
-                        Continent('Europe'),
-                        Continent('Africa'),
-                        Continent('Asia'),
-                        Continent('Oceania')
-                      ];
+                    List<Continent> continents = [
+                      Continent('North America'),
+                      Continent('South America'),
+                      Continent('Europe'),
+                      Continent('Africa'),
+                      Continent('Asia'),
+                      Continent('Oceania')
+                    ];
 
-                      for (int i = 0; i < snapshot.data.docs.length; i++) {
-                        var alreadyVisitedCountry = snapshot.data.docs[i];
+                    for (int i = 0; i < snapshot.data.docs.length; i++) {
+                      var alreadyVisitedCountry = snapshot.data.docs[i];
 
-                        for (var i = 0; i < continents.length; i++) {
-                          if (continents[i].name == alreadyVisitedCountry['continent']) {
-                            continents[i].addVisited();
-                          }
+                      for (var i = 0; i < continents.length; i++) {
+                        if (continents[i].name == alreadyVisitedCountry['continent']) {
+                          continents[i].addVisited();
                         }
                       }
+                    }
 
-                      return Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                'Total countries visited: ${snapshot.data.docs.length}',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 26,
-                                  color: Colors.lightBlueAccent,
-                                ),
+                    return Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'Total countries visited: ${snapshot.data.docs.length}',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 26,
+                                color: Colors.lightBlueAccent,
                               ),
-                              ListView(
-                                shrinkWrap: true,
-                                children: [
-                                  for (var i = 0; i < continents.length; i++)
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '${continents[i].name}: ',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 26,
-                                          ),
+                            ),
+                            ListView(
+                              shrinkWrap: true,
+                              children: [
+                                for (var i = 0; i < continents.length; i++)
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        '${continents[i].name}: ',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 26,
                                         ),
-                                        Text(
-                                          '${continents[i].timesVisited}',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.lightBlueAccent,
-                                            fontSize: 26,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                ],
-                              )
-                            ],
-                          ),
+                                      ),
+                                      Text(
+                                        '${continents[i].timesVisited}',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlueAccent,
+                                          fontSize: 26,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                              ],
+                            )
+                          ],
                         ),
-                      );
-                    }),
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ],
